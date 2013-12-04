@@ -1,0 +1,62 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Zhihu.QuestionDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/ZHBackground.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <phone:LongListSelector ItemsSource="{Binding answers}">
+                <phone:LongListSelector.ListHeader>
+                    <StackPanel>
+                        <TextBlock Name="QuestionTitle" Text="未经允许开发知乎WP客户端是否侵权？" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        <TextBlock Name="QuestionContent" Text="这里是内容这里是内容" Margin="20,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <TextBlock Height="40"/>
+                    </StackPanel>
+                </phone:LongListSelector.ListHeader>
+                <phone:LongListSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,30">
+                            <Grid>
+                                <Grid Margin="10,0,380,0">
+                                    <Image Source="/Assets/ApplicationIcon.png" Margin="0,0,0,50"/>
+                                    <Border Margin="10,90,10,0" Height="30" BorderBrush="#FF2B75E0" Opacity="0.5" BorderThickness="1,1,1,1"/>
+                                    <TextBlock Text="{Binding showVoteupCount}" Margin="10,90,10,0" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Grid>
+                                <StackPanel Margin="100,0,0,0">
+                                    <TextBlock Text="{Binding showName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+                                    <TextBlock Text="{Binding showContent}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+                <phone:LongListSelector.ListFooter>
+                    <TextBlock Height="70"/>
+                </phone:LongListSelector.ListFooter>
+            </phone:LongListSelector>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

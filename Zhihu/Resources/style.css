@@ -1,0 +1,11 @@
+*
+{
+	color: white;
+}
+
+body
+{
+	background-image: url(ZHBackground.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}

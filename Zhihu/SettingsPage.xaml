@@ -1,0 +1,68 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Zhihu.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/ZHBackground.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <phone:Pivot Title="知乎 - 设置" Grid.RowSpan="2">
+            <phone:PivotItem Header="账号">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Margin="0,0,0,30">
+                            <Image Source="/Assets/ApplicationIcon.png" Width="150" Height="150" Margin="0,0,306,0"/>
+                            <TextBlock Text="Madimo Zhang" Margin="155,0,0,102" FontSize="35" HorizontalAlignment="Center"/>
+                            <TextBlock Text="我的话题" Margin="155,48,216,67" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="102" FontSize="40" Margin="155,97,216,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="我关注的人" Margin="245,48,0,67" HorizontalAlignment="Left" Width="105" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="1024" FontSize="40" Margin="240,78,106,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="关注我的人" Margin="355,48,0,67" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="1024" FontSize="40" Margin="350,78,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Button Content="详细信息" Style="{StaticResource ZHButtonStyle}" Margin="0,0,0,20"/>
+                        <Button Content="全部动态" Style="{StaticResource ZHButtonStyle}"/>
+                        <Button Content="我的回答 （10）" Style="{StaticResource ZHButtonStyle}"/>
+                        <Button Content="我的提问 （20）" Style="{StaticResource ZHButtonStyle}" Margin="0,0,0,20"/>
+                        <Button Content="我关注的专栏 （0）" Style="{StaticResource ZHButtonStyle}"/>
+                        <Button Content="我的专栏 （0）" Style="{StaticResource ZHButtonStyle}" Margin="0,0,0,20"/>
+                        <Button Content="查找好友 （0）" Style="{StaticResource ZHButtonStyle}" Margin="0,0,0,20"/>
+                        <Button Content="退出当前账号" Click="Logout_Click" Style="{StaticResource ZHButtonStyle}" Margin="0,0,0,20"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PivotItem>
+            <phone:PivotItem Header="常规">
+                <StackPanel>
+                    <toolkit:ToggleSwitch Header="非 WiFi 网络下自动加载图片" Content="关" Style="{StaticResource ZHToggleSwitchStyle}"/>
+                </StackPanel>
+            </phone:PivotItem>
+            <phone:PivotItem Header="关于">
+                <StackPanel>
+                    <Button Content="给个好评" Style="{StaticResource ZHButtonStyle}"/>
+                    <Button Content="反馈" Style="{StaticResource ZHButtonStyle}"/>
+                    <Button Content="免责声明" Style="{StaticResource ZHButtonStyle}"/>
+                </StackPanel>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>
